@@ -1,0 +1,327 @@
+/*
+ * Custom CSS
+ */
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Semi+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+:root {
+  --bs-body-bg: #f6f4f6;
+  --bs-body-font-family: "Sofia Sans Semi Condensed", sans-serif;
+  --base-font-size: 17px;
+  --bs-body-font-weight: 500;
+  --bs-border-radius-lg: 99px;
+  --bs-border-radius: 1.5rem;
+
+}
+h1 {
+  font-size: 3.5rem; /* Equivalent to 56px / 16px */
+}
+
+h2.hero-txt {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+h2 {
+  font-size: 2.8125rem; /* Equivalent to 45px / 16px */
+  font-style: normal;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0;
+  /* line-height: 60px; 173.333% */
+}
+
+h3 {
+  font-size: 2.125rem; /* Equivalent to 34px / 16px */
+}
+
+h4 {
+  font-size: 1.75rem; /* Equivalent to 28px / 16px */
+}
+
+h5 {
+  font-size: 1.375rem; /* Equivalent to 22px / 16px */
+  line-height: 32px;
+}
+
+h6{
+  font-size: 1.25rem; /* Equivalent to 20px / 16px */
+}
+.btn-primary {
+  --bs-btn-bg: #201823;
+  --bs-btn-border-color: #201823;
+  --bs-btn-hover-bg: #FD805D;
+  --bs-btn-hover-border-color: #FD805D;
+  --bs-btn-active-bg: #FD805D;
+}
+/* .rounded {
+} */
+
+.highlight-text{
+  font-size: 38.047px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -0.761px;
+  background: var(--Gradient-1, radial-gradient(803.32% 133.6% at 98.88% 15.19%, #FD805D 0%, #981E62 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent
+  }
+.highlight {
+    background: var(--Gradient-1, radial-gradient(803.32% 133.6% at 98.88% 15.19%, #FD805D 0%, #981E62 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent
+}
+
+.highlight{
+  color: radial-gradient(113.02% 800.16% at 98.88% 15.19%, #FD805D 0%, #981E62 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+}
+
+.with_support {
+  color: #3E2F43;
+font-size: 17px;
+font-family: Sofia Sans Semi Condensed;
+font-weight: 700;
+line-height: 25.50px;
+word-wrap: break-word
+}
+
+.elipse {
+  width: 100%; /* adjust width as needed */
+  background-image: url('landing-img/elipse.png');
+  background-size: contain; /* or cover, depending on how you want the image to be scaled */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.meet {
+  color: #452B4F;
+font-size: 28px;
+font-family: Sofia Sans Semi Condensed;
+font-weight: 700;
+line-height: 34px;
+word-wrap: break-word
+}
+
+
+p.lead {
+  line-height: 25.5px;
+  letter-spacing: -0.1px;
+  font-size: 1.375rem;
+  font-weight: 300 !important;
+}
+.text-purple {
+color: #452B4F;
+}
+.text-brown{
+  color: #FD805D;
+  font-weight: 700;
+  font-size: 2.8rem;
+
+}
+
+nav.navbar.fixed-top {
+  background: #f6f4f6;
+}
+.offset-header {
+  padding-top: 100px;
+}
+.gap-y-60 {
+  padding: 60px 0px;
+}
+@media (min-width: 1400px) {
+  .offset-header {
+  padding-top: 120px;
+}
+}
+.partners-grey div a img{
+  height: 40px;
+  filter: grayscale(100%);
+}
+.ratio::before{
+border-radius: 32px;
+  -webkit-box-shadow: 2px -73px 46px -28px rgba(247,203,189,0.8);
+-moz-box-shadow: 2px -73px 46px -28px rgba(247,203,189,0.8);
+box-shadow: 2px -73px 46px -28px rgba(247,203,189,0.8);
+}
+.embed iframe {
+-webkit-box-shadow: 2px 90px 62px -32px rgba(239,208,172,1);
+-moz-box-shadow: 2px 90px 62px -32px rgba(239,208,172,1);
+box-shadow: 2px 90px 62px -32px rgba(239,208,172,1);
+border-radius: 32px;
+}
+  .rating.circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #452B4F;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  .rating.circle h1{
+  font-weight: 800;
+  line-height: 30px;
+  letter-spacing: -2.296px;
+  color: #fff
+}
+.rating.circle h3{
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 20px;
+   color: #fff
+}
+.profile h5.title{
+  font-family: "Protest Riot";
+  font-size: 18px;
+  font-style: normal;
+}
+
+.g70{
+  color: #59495E;
+}
+
+.tar{
+  text-align: right;
+} 
+
+.pt-6{
+  padding-top: 6rem;
+}
+
+.center-v{
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
+
+.unlink{
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.feedback-name {
+  color: #452B4F;
+font-size: 16px;
+font-weight: 700;
+line-height: 24px;
+word-wrap: break-word;
+white-space: nowrap;
+}
+
+.feedback-title{
+  color: #452B4F;
+font-size: 20px;
+font-family: Protest Riot;
+font-weight: 400;
+line-height: 16.80px;
+word-wrap: break-word
+
+}
+
+.card-text{
+  color: #6A5C6F;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 25.50px;
+  word-wrap: break-word;
+}
+
+.hero-highlight {
+  border-radius: 16px;
+  background: #452B4F;
+  padding: 8px 24px;
+  color: #fff
+}
+.hero-highlight:nth-child(1){
+  max-width: 420px;
+}
+.hero-highlight:nth-child(2){
+  max-width: 495px;
+}
+
+ul.feature-list{
+  list-style-type: none;
+}
+ul.feature-list li{
+  padding: 18px 0px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 25.5px;
+  letter-spacing: -0.1px;
+}
+
+div.rounded-div{
+  background: white;
+  border-radius: 647.399px;
+  padding: 8px 34px;
+  z-index: 1;
+}
+
+hr.white {
+  border-color: #FFFFFF;
+  border-width: 3px;
+}
+
+.hero-1{
+  z-index: 1000;
+}
+
+.hero-2{
+  margin-left: -7%;
+}
+
+
+
+@media (max-width: 576px) {
+  h1{
+    font-size: 2.5rem;
+  }
+  h2 {
+  font-size: 1.8rem;
+}
+
+h2.highlight {
+  font-size: 2.8rem;
+}
+
+h4{
+  font-size: 1.2rem;
+}
+.stretch{
+  width: 100% !important;
+}
+
+.hero-2{
+  margin-bottom: -40%;
+  margin-left: 0%;
+}
+
+
+.hero-highlight:nth-child(1) {
+  max-width: 320px;
+}
+.hero-highlight {
+  padding: 4px 12px;
+}
+.rating.circle h1 {
+margin: 2px;
+}
+
+}
+
+
+/* media query for tablets */
+@media (min-width: 768px) and (max-width: 992px) {
+  .hero-2{
+    margin-bottom: -45%;
+    margin-left: 0%;
+}
+}
