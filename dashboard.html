@@ -40,16 +40,12 @@
         id="sidebar">
         <div class="p-6">
           <div class="flex items-center space-x-2 mb-8">
-            <div
-              class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <svg
-                class="w-5 h-5 text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20">
-                <path d="M10 2L3 7v11h4v-6h6v6h4V7l-7-5z" />
-              </svg>
+            <div class="w-40">
+              <img
+                src="https://cdn.prod.website-files.com/67be9c3f8051ae88c94186ba/67c130f78b5df9164b68a804_logo.svg"
+                alt="Logo"
+                class="w-40" />
             </div>
-            <span class="text-xl font-semibold text-gray-900">Latte</span>
           </div>
           <nav class="space-y-2">
             <a
@@ -158,10 +154,12 @@
                 <div
                   id="headerSubTitle"
                   class="flex items-center space-x-2 mt-1 hidden">
-                  <span class="text-sm text-gray-500">1 min ago</span>
+                  <span id="headerSubTitleDate" class="text-sm text-gray-500"
+                    >7 days ago</span
+                  >
                   <span class="text-sm text-gray-500">•</span>
                   <span class="text-sm text-gray-500"
-                    >Screener Link: app.roselina.ai/3d4sf8</span
+                    >Screener Link: app.roseline.ai/3d4sf8</span
                   >
                 </div>
               </div>
@@ -177,6 +175,16 @@
                 class="px-4 py-2 bg-gray-900 text-white rounded-md text-sm hover:bg-gray-800">
                 Push to CTMS
               </button>
+              <!-- Export dropdown -->
+              <select
+                class="px-4 py-2 bg-secondary text-white rounded-md text-sm hover:bg-red-600">
+                <option value="">Export</option>
+                <option value="pdf">PDF</option>
+                <option value="csv">CSV</option>
+                <option value="json">JSON</option>
+              </select>
+            </div>
+            <div id="exportButtons" class="flex items-center space-x-4 hidden">
               <button
                 class="px-4 py-2 bg-secondary text-white rounded-md text-sm hover:bg-red-600">
                 Export
@@ -920,7 +928,7 @@
                     </td>
                     <td
                       class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      12 Aug 2022 - 12:25 am
+                      Jul 18, 2025, 03:58 PM
                     </td>
                     <td
                       class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -1223,6 +1231,8 @@
           document.getElementById("patientDetailView").classList.add("hidden");
           document.getElementById("headerSubTitle").classList.remove("hidden");
           document.getElementById("newView").classList.add("hidden");
+          document.getElementById("headerSubTitleDate").innerHTML =
+            "7 days ago";
         } else if (viewName === "screening") {
           document.getElementById("headerButtons").classList.add("hidden");
           document.getElementById("headerSubTitle").classList.add("hidden");
@@ -1239,7 +1249,7 @@
             '<span class="text-gray-600">Screening Agents > Obesity GLP-1 Candidate > </span> OBE-001';
           document.getElementById("dashboardView").classList.add("hidden");
           document.getElementById("screeningView").classList.add("hidden");
-          document.getElementById("headerSubTitle").classList.remove("hidden");
+          document.getElementById("exportButtons").classList.remove("hidden");
           document.getElementById("newView").classList.add("hidden");
         } else if (viewName === "new") {
           // Set patientStart to one minute ago
@@ -1275,6 +1285,8 @@
           for (let i = 0; i < patientEnd.length; i++) {
             patientEnd[i].innerHTML = now.toLocaleString("en-US", options);
           }
+
+          document.getElementById("headerSubTitleDate").innerHTML = "1 min ago";
 
           const trialTitle = document.getElementById("trialTitle").value;
           console.log(document.getElementById("completedScreenings").innerHTML);
@@ -1314,8 +1326,8 @@
                 .trim()
             ) + 1;
 
-          document.getElementById("headerButtons").classList.add("hidden");
-          document.getElementById("headerSubTitle").classList.add("hidden");
+          document.getElementById("headerButtons").classList.remove("hidden");
+          document.getElementById("headerSubTitle").classList.remove("hidden");
           document.getElementById("newView").classList.remove("hidden");
           document.getElementById("pageTitle").innerHTML =
             '<span class="text-gray-600">Screening Agents</span> > Obesity GLP-1 Candidate';
@@ -1448,6 +1460,7 @@
               minute: "2-digit",
               hour12: true,
             };
+
             const formattedTime = date.toLocaleString("en-US", options);
 
             const newRow = document.createElement("tr");
