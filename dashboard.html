@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latte - Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#4F46E5",
+              secondary: "#EF4444",
+              accent: "#10B981",
+              gray: {
+                50: "#F9FAFB",
+                100: "#F3F4F6",
+                200: "#E5E7EB",
+                300: "#D1D5DB",
+                400: "#9CA3AF",
+                500: "#6B7280",
+                600: "#4B5563",
+                700: "#374151",
+                800: "#1F2937",
+                900: "#111827",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Main Container -->
+    <div class="min-h-screen flex">
+      <!-- Sidebar -->
+      <div
+        class="w-64 bg-white shadow-lg fixed h-screen z-30 lg:relative lg:translate-x-0 transform -translate-x-full transition-transform duration-300"
+        id="sidebar">
+        <div class="p-6">
+          <div class="flex items-center space-x-2 mb-8">
+            <div
+              class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+              <svg
+                class="w-5 h-5 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20">
+                <path d="M10 2L3 7v11h4v-6h6v6h4V7l-7-5z" />
+              </svg>
+            </div>
+            <span class="text-xl font-semibold text-gray-900">Latte</span>
+          </div>
+          <nav class="space-y-2">
+            <a
+              href="#"
+              class="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+              </svg>
+              <span>Dashboard</span>
+            </a>
+            <a
+              href="#"
+              class="flex items-center space-x-3 px-4 py-3 bg-primary text-white rounded-lg"
+              onclick="showView('screening')">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Screening Agents</span>
+              <span
+                class="ml-auto bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full"
+                >3</span
+              >
+            </a>
+            <a
+              href="#"
+              class="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+              <span>Metrics</span>
+            </a>
+            <a
+              href="#"
+              class="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+              </svg>
+              <span>Integrations</span>
+            </a>
+            <a
+              href="#"
+              class="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fillRule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                  clipRule="evenodd" />
+              </svg>
+              <span>Account</span>
+            </a>
+            <a
+              href="#"
+              class="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fillRule="evenodd"
+                  d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                  clipRule="evenodd" />
+              </svg>
+              <span>Settings</span>
+            </a>
+          </nav>
+        </div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <a
+            href="#"
+            class="flex items-center space-x-3 px-4 py-3 text-red-600 hover:bg-red-50 rounded-lg">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
+                clipRule="evenodd" />
+            </svg>
+            <span>Logout</span>
+          </a>
+        </div>
+      </div>
+      <!-- Main Content -->
+      <div class="flex-1 lg:ml-0">
+        <!-- Header -->
+        <header class="bg-white shadow-sm border-b px-6 py-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <button
+                class="lg:hidden p-2 rounded-md hover:bg-gray-100"
+                onclick="toggleSidebar()">
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+              <div>
+                <h1 class="text-2xl font-semibold text-gray-900" id="pageTitle">
+                  Screening Agents
+                </h1>
+                <div
+                  id="headerSubTitle"
+                  class="flex items-center space-x-2 mt-1 hidden">
+                  <span class="text-sm text-gray-500">1 min ago</span>
+                  <span class="text-sm text-gray-500">•</span>
+                  <span class="text-sm text-gray-500"
+                    >Screener Link: app.roselina.ai/3d4sf8</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div id="headerButtons" class="flex items-center space-x-4 hidden">
+              <select
+                class="px-3 py-2 border border-gray-300 rounded-md text-sm">
+                <option>This Week</option>
+                <option>This Month</option>
+                <option>This Year</option>
+              </select>
+              <button
+                class="px-4 py-2 bg-gray-900 text-white rounded-md text-sm hover:bg-gray-800">
+                Push to CTMS
+              </button>
+              <button
+                class="px-4 py-2 bg-secondary text-white rounded-md text-sm hover:bg-red-600">
+                Export
+              </button>
+            </div>
+          </div>
+        </header>
+        <!-- Dashboard View -->
+        <div id="dashboardView" class="p-6 hidden">
+          <!-- Stats Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-600">Patients screened</p>
+                  <p class="text-3xl font-semibold text-gray-900">1,283</p>
+                </div>
+                <div
+                  class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <svg
+                    class="w-6 h-6 text-blue-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                      d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-600">Eligible</p>
+                  <p class="text-3xl font-semibold text-gray-900">688</p>
+                </div>
+                <div
+                  class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                  <svg
+                    class="w-6 h-6 text-green-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-600">For Review</p>
+                  <p class="text-3xl font-semibold text-gray-900">30</p>
+                </div>
+                <div
+                  class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                  <svg
+                    class="w-6 h-6 text-yellow-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                      clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Screening Agents Table -->
+          <div class="bg-white rounded-lg shadow-sm">
+            <div class="px-6 py-4 border-b border-gray-200">
+              <div class="flex items-center justify-between">
+                <h2 class="text-lg font-semibold text-gray-900">
+                  Screening calls
+                </h2>
+                <div class="flex items-center space-x-4">
+                  <div class="relative">
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      class="pl-10 pr-4 py-2 border border-gray-300 rounded-md text-sm" />
+                    <svg
+                      class="w-5 h-5 text-gray-400 absolute left-3 top-2.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                  <button
+                    class="px-3 py-2 border border-gray-300 rounded-md text-sm">
+                    Filter
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Unique ID
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Patient Name
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Phone
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Start Time
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      End Time
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Status
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr
+                    onclick="showView('patient')"
+                    class="cursor-pointer hover:bg-gray-50">
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      OBE-001
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Jack Black
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      080-123-4567
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 08:30:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 09:30:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Eligible
+                    </td>
+                  </tr>
+                  <tr
+                    onclick="showView('patient')"
+                    class="cursor-pointer hover:bg-gray-50">
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      OBE-002
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Sarah Johnson
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      080-234-5678
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 09:00:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 10:00:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Eligible
+                    </td>
+                  </tr>
+                  <tr
+                    onclick="showView('patient')"
+                    class="cursor-pointer hover:bg-gray-50">
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      OBE-003
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Michael Brown
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      080-345-6789
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 10:30:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 11:30:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Eligible
+                    </td>
+                  </tr>
+                  <tr
+                    onclick="showView('patient')"
+                    class="cursor-pointer hover:bg-gray-50">
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      OBE-004
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Emily Davis
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      080-456-7890
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 12:00:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 13:00:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Eligible
+                    </td>
+                  </tr>
+                  <tr
+                    onclick="showView('patient')"
+                    class="cursor-pointer hover:bg-gray-50">
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      OBE-005
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      William Wilson
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      080-567-8901
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 13:30:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 14:30:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Eligible
+                    </td>
+                  </tr>
+                  <tr
+                    onclick="showView('patient')"
+                    class="cursor-pointer hover:bg-gray-50">
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      OBE-006
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Olivia Taylor
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      080-678-9012
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 15:00:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 16:00:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Eligible
+                    </td>
+                  </tr>
+                  <tr
+                    onclick="showView('patient')"
+                    class="cursor-pointer hover:bg-gray-50">
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      OBE-007
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      James Anderson
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      080-789-0123
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 16:30:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 17:30:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Eligible
+                    </td>
+                  </tr>
+                  <tr
+                    onclick="showView('patient')"
+                    class="cursor-pointer hover:bg-gray-50">
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      OBE-008
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Emma Thompson
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      080-890-1234
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 18:00:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 19:00:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Eligible
+                    </td>
+                  </tr>
+                  <tr
+                    onclick="showView('patient')"
+                    class="cursor-pointer hover:bg-gray-50">
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      OBE-009
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Robert Wilson
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      080-901-2345
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 19:30:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 20:30:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Eligible
+                    </td>
+                  </tr>
+                  <tr
+                    onclick="showView('patient')"
+                    class="cursor-pointer hover:bg-gray-50">
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      OBE-010
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Sophia Martinez
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      080-012-3456
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 21:00:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 22:00:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Eligible
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="px-6 py-4 border-t border-gray-200">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <select
+                    class="px-3 py-2 border border-gray-300 rounded-md text-sm">
+                    <option>10</option>
+                    <option>25</option>
+                    <option>50</option>
+                  </select>
+                  <span class="text-sm text-gray-500">Items per page</span>
+                  <span class="text-sm text-gray-500">1-10 of 688 items</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <span class="text-sm text-gray-500">1 of 69 pages</span>
+                  <button
+                    class="p-2 border border-gray-300 rounded-md hover:bg-gray-50">
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    class="p-2 border border-gray-300 rounded-md hover:bg-gray-50">
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="newView" class="p-6 hidden">
+          <!-- Stats Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-600">Patients screened</p>
+                  <p class="text-3xl font-semibold text-gray-900">1</p>
+                </div>
+                <div
+                  class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <svg
+                    class="w-6 h-6 text-blue-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                      d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-600">Eligible</p>
+                  <p class="text-3xl font-semibold text-gray-900">1</p>
+                </div>
+                <div
+                  class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                  <svg
+                    class="w-6 h-6 text-green-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-600">For Review</p>
+                  <p class="text-3xl font-semibold text-gray-900">0</p>
+                </div>
+                <div
+                  class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                  <svg
+                    class="w-6 h-6 text-yellow-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                      clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Screening Agents Table -->
+          <div class="bg-white rounded-lg shadow-sm">
+            <div class="px-6 py-4 border-b border-gray-200">
+              <div class="flex items-center justify-between">
+                <h2 class="text-lg font-semibold text-gray-900">
+                  Screening calls
+                </h2>
+                <div class="flex items-center space-x-4">
+                  <div class="relative">
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      class="pl-10 pr-4 py-2 border border-gray-300 rounded-md text-sm" />
+                    <svg
+                      class="w-5 h-5 text-gray-400 absolute left-3 top-2.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                  <button
+                    class="px-3 py-2 border border-gray-300 rounded-md text-sm">
+                    Filter
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Unique ID
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Patient Name
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Phone
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Start Time
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      End Time
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Status
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr
+                    onclick="showView('patient')"
+                    class="cursor-pointer hover:bg-gray-50">
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      OBE-001
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Jack Black
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      080-123-4567
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 08:30:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      2025-07-18 09:30:00
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Eligible
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="px-6 py-4 border-t border-gray-200">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <select
+                    class="px-3 py-2 border border-gray-300 rounded-md text-sm">
+                    <option>10</option>
+                    <option>25</option>
+                    <option>50</option>
+                  </select>
+                  <span class="text-sm text-gray-500">Items per page</span>
+                  <span class="text-sm text-gray-500">1-10 of 688 items</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <span class="text-sm text-gray-500">1 of 69 pages</span>
+                  <button
+                    class="p-2 border border-gray-300 rounded-md hover:bg-gray-50">
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    class="p-2 border border-gray-300 rounded-md hover:bg-gray-50">
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Screening Agents View -->
+        <div id="screeningView" class="p-6">
+          <!-- Stats Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-600">Active enrolments</p>
+                  <p class="text-3xl font-semibold text-gray-900">3</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-600">Completed screenings</p>
+                  <p class="text-3xl font-semibold text-gray-900">2,572</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-600">Qualified</p>
+                  <p class="text-3xl font-semibold text-gray-900">1,923</p>
+                  <p class="text-sm text-green-600">98.50%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Table -->
+          <div class="bg-white rounded-lg shadow-sm">
+            <div class="px-6 py-4 border-b border-gray-200">
+              <div class="flex items-center justify-between">
+                <h2 class="text-lg font-semibold text-gray-900">
+                  Your Screening Agents
+                </h2>
+                <div class="flex items-center space-x-4">
+                  <div class="relative">
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      class="pl-10 pr-4 py-2 border border-gray-300 rounded-md text-sm" />
+                    <svg
+                      class="w-5 h-5 text-gray-400 absolute left-3 top-2.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                  <button
+                    class="px-3 py-2 border border-gray-300 rounded-md text-sm">
+                    Filter
+                  </button>
+                  <button
+                    class="px-4 py-2 bg-primary text-white rounded-md text-sm hover:bg-blue-600"
+                    onclick="openModal()">
+                    + Create New Screening Agent
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Trial Title
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Date Created
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Patients Screened
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Eligible
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      For Review
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Status
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  id="screeningTableBody"
+                  class="bg-white divide-y divide-gray-200">
+                  <tr
+                    onclick="showView('dashboard')"
+                    class="cursor-pointer hover:bg-gray-50">
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      Obesity GLP-1 Candidate
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      12 Aug 2022 - 12:25 am
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      1,283
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      688
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      30
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">
+                        Active
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- Patient detail view -->
+        <div id="patientDetailView" class="hidden">
+          <div class="p-6 space-y-8">
+            <!-- Patient Details and Call Actions -->
+            <div class="flex justify-between bg-white rounded shadow-sm p-6">
+              <div class="space-y-1 text-sm text-gray-700">
+                <p><strong>Unique ID:</strong> OB-001</p>
+                <p><strong>Name:</strong> Americano Cino</p>
+                <p><strong>Phone:</strong> +1-344-343-3434</p>
+                <p><strong>Start:</strong> 17 July 2025 17:35</p>
+                <p><strong>End:</strong> 17 July 2025 17:42</p>
+              </div>
+              <div class="gap-4">
+                <button
+                  class="bg-orange-400 text-white px-4 py-2 rounded hover:bg-orange-500">
+                  Listen to call
+                </button>
+                <button
+                  class="bg-orange-400 text-white px-4 py-2 rounded hover:bg-orange-500">
+                  Show transcript
+                </button>
+              </div>
+            </div>
+
+            <!-- Screening Questions -->
+            <div class="bg-white p-6 rounded shadow-sm">
+              <h2 class="text-xl font-bold text-blue-600 mb-4">
+                Screening Questions
+              </h2>
+              <div class="space-y-3 text-gray-800 text-sm">
+                <p>
+                  <strong>Question 1:</strong> how old are you? (in years)<br />
+                  <span class="ml-4">Response: 35</span>
+                </p>
+                <p>
+                  <strong>Question 2:</strong> Do you have diabetes?<br />
+                  <span class="ml-4">Response: No</span>
+                </p>
+                <p>
+                  <strong>Question 3:</strong> Have you had bariatric
+                  surgery?<br />
+                  <span class="ml-4">Response: Yes</span>
+                </p>
+                <p>
+                  <strong>Question 4:</strong> Where do you live?<br />
+                  <span class="ml-4">Response: Ottawa</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Overlay -->
+    <div
+      id="modalOverlay"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden z-50"
+      onclick="closeModal()"></div>
+    <!-- Create Screening Agent Modal -->
+    <div
+      id="createModal"
+      class="fixed inset-0 z-50 flex items-center justify-center hidden">
+      <div
+        class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+        <div class="flex items-center justify-between p-6 border-b">
+          <h3 class="text-lg font-semibold">Create New Screening Agent</h3>
+          <button
+            onclick="closeModal()"
+            class="text-gray-400 hover:text-gray-600">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div id="modalContent" class="p-6">
+          <!-- Step 2: Screening Questions -->
+          <div id="step2" class="step">
+            <h4 class="text-sm font-medium text-gray-900 mb-4">
+              Screening Questions
+            </h4>
+            <div class="space-y-4">
+              <div class="p-4 bg-orange-50 rounded-lg">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="font-medium text-sm">Question 1:</span>
+                    <p class="text-sm text-gray-700 mt-1">
+                      Hello Janet, thank you for reaching out. Trying to see how
+                      this wraps
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 bg-orange-50 rounded-lg">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="font-medium text-sm">Question 2:</span>
+                    <p class="text-sm text-gray-700 mt-1">
+                      Hello Janet, thank you for reaching out. Trying to see how
+                      this wraps
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 bg-orange-50 rounded-lg">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="font-medium text-sm">Question 3:</span>
+                    <p class="text-sm text-gray-700 mt-1">
+                      Hello Janet, thank you for reaching out. Trying to see how
+                      this wraps
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 bg-orange-50 rounded-lg">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="font-medium text-sm">Question 4:</span>
+                    <p class="text-sm text-gray-700 mt-1">
+                      Hello Janet, thank you for reaching out. Trying to see how
+                      this wraps
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 bg-orange-50 rounded-lg">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="font-medium text-sm">Question 5:</span>
+                    <p class="text-sm text-gray-700 mt-1">
+                      Hello Janet, thank you for reaching out. Trying to see how
+                      this wraps
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-end space-x-3 mt-6">
+              <button
+                onclick="closeModal()"
+                class="px-4 py-2 border border-gray-300 rounded-md text-sm hover:bg-gray-50">
+                Cancel
+              </button>
+              <button
+                onclick="createAgent()"
+                class="px-4 py-2 bg-primary text-white rounded-md text-sm hover:bg-blue-600">
+                Create
+              </button>
+            </div>
+          </div>
+          <!-- Loading Spinner -->
+          <div
+            id="loadingSpinner"
+            class="flex flex-col items-center justify-center space-y-4 hidden">
+            <div
+              class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+            <div id="loadingSteps" class="text-center space-y-2">
+              <div class="text-gray-500 text-sm">
+                Reviewing your criteria...
+              </div>
+            </div>
+          </div>
+          <!-- Create Modal Spinner -->
+          <div
+            id="createLoadingSpinner"
+            class="flex flex-col items-center justify-center space-y-4 hidden">
+            <div
+              class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+            <div id="createLoadingSteps" class="text-center space-y-2">
+              <div class="text-gray-500 text-sm">
+                Converting questions for voice-based interaction...
+              </div>
+            </div>
+          </div>
+          <!-- Step 1: Trial Info -->
+          <div id="step1" class="step hidden">
+            <h4 class="text-sm font-medium text-gray-900 mb-4">Trial Info</h4>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Title</label
+                >
+                <input
+                  id="trialTitle"
+                  type="text"
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Enter trial title" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Inclusion Criteria</label
+                >
+                <textarea
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  rows="4"
+                  placeholder="Enter inclusion criteria"></textarea>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Exclusion Criteria</label
+                >
+                <textarea
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  rows="4"
+                  placeholder="Enter exclusion criteria"></textarea>
+              </div>
+            </div>
+            <div class="flex justify-end space-x-3 mt-6">
+              <button
+                onclick="closeModal()"
+                class="px-4 py-2 border border-gray-300 rounded-md text-sm hover:bg-gray-50">
+                Cancel
+              </button>
+              <button
+                onclick="showQuestionsModal()"
+                class="px-4 py-2 bg-primary text-white rounded-md text-sm hover:bg-blue-600">
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let currentStep = 1;
+
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("-translate-x-full");
+      }
+
+      function showView(viewName) {
+        // Hide all views
+        document.getElementById("dashboardView").classList.add("hidden");
+        document.getElementById("screeningView").classList.add("hidden");
+
+        // Show selected view
+        if (viewName === "dashboard") {
+          document.getElementById("dashboardView").classList.remove("hidden");
+          document.getElementById("pageTitle").textContent =
+            "Obesity GLP-1: Screener";
+          document.getElementById("headerButtons").classList.remove("hidden");
+          document.getElementById("patientDetailView").classList.add("hidden");
+          document.getElementById("headerSubTitle").classList.remove("hidden");
+          document.getElementById("newView").classList.add("hidden");
+        } else if (viewName === "screening") {
+          document.getElementById("headerButtons").classList.add("hidden");
+          document.getElementById("headerSubTitle").classList.add("hidden");
+          document.getElementById("screeningView").classList.remove("hidden");
+          document.getElementById("pageTitle").textContent = "Screening Agents";
+          document.getElementById("patientDetailView").classList.add("hidden");
+          document.getElementById("newView").classList.add("hidden");
+        } else if (viewName === "patient") {
+          document.getElementById("headerButtons").classList.add("hidden");
+          document
+            .getElementById("patientDetailView")
+            .classList.remove("hidden");
+          document.getElementById("pageTitle").textContent =
+            "Obsesity Reduction > 0B-001";
+          document.getElementById("dashboardView").classList.add("hidden");
+          document.getElementById("screeningView").classList.add("hidden");
+          document.getElementById("headerSubTitle").classList.remove("hidden");
+          document.getElementById("newView").classList.add("hidden");
+        } else if (viewName === "new") {
+          const trialTitle = document.getElementById("trialTitle").value;
+
+          document.getElementById("headerButtons").classList.add("hidden");
+          document.getElementById("headerSubTitle").classList.add("hidden");
+          document.getElementById("newView").classList.remove("hidden");
+          document.getElementById("pageTitle").textContent = trialTitle;
+          document.getElementById("patientDetailView").classList.add("hidden");
+        }
+
+        // // Update sidebar active state
+        // const sidebarLinks = document.querySelectorAll("nav a");
+        // sidebarLinks.forEach((link) => {
+        //   link.classList.remove("bg-primary", "text-white");
+        //   link.classList.add("text-gray-700", "hover:bg-gray-100");
+        // });
+
+        // // Set active link
+        // const activeLink = viewName === "dashboard" ? 0 : 1;
+        // sidebarLinks[activeLink].classList.add("bg-primary", "text-white");
+        // sidebarLinks[activeLink].classList.remove(
+        //   "text-gray-700",
+        //   "hover:bg-gray-100"
+        // );
+      }
+
+      function openModal() {
+        document.getElementById("modalOverlay").classList.remove("hidden");
+        document.getElementById("createModal").classList.remove("hidden");
+        currentStep = 1; // Start with the form (step 1)
+        showStep(currentStep);
+      }
+
+      function showQuestionsModal() {
+        // Show loading spinner
+        const loadingSpinner = document.getElementById("loadingSpinner");
+        const loadingSteps = document.getElementById("loadingSteps");
+        const steps = [
+          "Reviewing your criteria...",
+          "Analyzing inclusion and exclusion rules...",
+          "Preparing question generation...",
+          "Generating clinical trial questions using AI...",
+          "Refining and structuring the survey...",
+          "Saving your generated survey...",
+          "Almost done...",
+        ];
+
+        let currentStep = 0;
+        const stepDuration = 1000 / steps.length; // 20 seconds total
+
+        function showNextStep() {
+          if (currentStep < steps.length) {
+            loadingSteps.innerHTML = `<div class="text-gray-500 text-sm">${steps[currentStep]}</div>`;
+            currentStep++;
+            setTimeout(showNextStep, stepDuration);
+          } else {
+            // Hide loading spinner and show questions
+            loadingSpinner.classList.add("hidden");
+            document.getElementById("step2").classList.remove("hidden");
+            // Hide screening questions
+            document.getElementById("step1").classList.add("hidden");
+          }
+        }
+
+        // Hide form and show loading spinner
+        document.getElementById("step1").classList.add("hidden");
+        loadingSpinner.classList.remove("hidden");
+        showNextStep();
+      }
+
+      function closeModal() {
+        document.getElementById("modalOverlay").classList.add("hidden");
+        document.getElementById("createModal").classList.add("hidden");
+      }
+
+      function showStep(step) {
+        document
+          .querySelectorAll(".step")
+          .forEach((s) => s.classList.add("hidden"));
+        document.getElementById(`step${step}`).classList.remove("hidden");
+      }
+
+      function nextStep() {
+        if (currentStep < 2) {
+          currentStep++;
+          showStep(currentStep);
+        }
+      }
+
+      function createAgent() {
+        // Show loading spinner
+        const createSpinner = document.getElementById("createLoadingSpinner");
+        const createSteps = document.getElementById("createLoadingSteps");
+        const steps = [
+          "Converting questions for voice-based interaction...",
+          "Designing a natural conversation flow...",
+          "Creating your voice AI agent...",
+          "Provisioning a dedicated phone number...",
+          "Establishing a secure phone line...",
+          "Uploading voice prompts and responses...",
+          "Connecting your survey to the phone system...",
+          "Testing your voice agent's responses...",
+          "Activating your phone survey agent...",
+          "Your voice-based trial assistant is almost ready...",
+        ];
+
+        let currentStep = 0;
+        const stepDuration = 1000 / steps.length; // 20 seconds total
+
+        function showNextStep() {
+          if (currentStep < steps.length) {
+            createSteps.innerHTML = `<div class="text-gray-500 text-sm">${steps[currentStep]}</div>`;
+            currentStep++;
+            setTimeout(showNextStep, stepDuration);
+          } else {
+            // Hide loading spinner and close modal
+            createSpinner.classList.add("hidden");
+            // Hide screening questions
+            document.getElementById("step2").classList.add("hidden");
+            closeModal();
+
+            // Add new row to table
+            const tableBody = document.getElementById("screeningTableBody");
+            const trialTitle = document.getElementById("trialTitle").value;
+            const currentTime = new Date().toLocaleString();
+
+            const newRow = document.createElement("tr");
+            newRow.className = "cursor-pointer hover:bg-gray-50";
+            newRow.onclick = function () {
+              showView("new");
+            };
+            newRow.innerHTML = `
+                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${trialTitle}</td>
+                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${currentTime}</td>
+                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">0</td>
+                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">0</td>
+                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">0</td>
+                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Active</span></td>
+               `;
+            tableBody.appendChild(newRow);
+
+            // Show success message
+            const successMessage = document.createElement("div");
+            successMessage.className =
+              "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50";
+            //   “Share the screening link with candidates”
+            // app.roseline.ai/dar32s [COPY BUTTON]
+            successMessage.innerHTML = `
+                 <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                   <div class="text-green-500 text-3xl mb-4">✓</div>
+                   <h3 class="text-lg font-semibold mb-2">Success!</h3>
+                   <p class="text-gray-600 mb-4">Your new screening agent has been created successfully.</p>
+                   <p class="text-gray-600 mb-4">Share the screening link with candidates</p>
+                   <p class="text-gray-600 mb-4">app.roseline.ai/dar32s <button onclick="copyToClipboard('app.roseline.ai/dar32s', this)" class="px-2 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600">Copy</button></p>
+                   <button onclick="this.parentElement.parentElement.remove()" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">
+                     Close
+                   </button>
+                 </div>
+               `;
+            document.body.appendChild(successMessage);
+          }
+        }
+
+        // Hide form and show loading spinner
+        document.getElementById("step2").classList.add("hidden");
+        createSpinner.classList.remove("hidden");
+        showNextStep();
+      }
+
+      function copyToClipboard(text, button) {
+        navigator.clipboard.writeText(text);
+        button.innerHTML = "Copied!";
+        button.classList.add("bg-blue-600");
+        setTimeout(() => {
+          button.classList.remove("bg-blue-600");
+          button.innerHTML = "Copy";
+        }, 2000);
+      }
+
+      // Close modal when clicking outside
+      document
+        .getElementById("modalOverlay")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeModal();
+          }
+        });
+
+      // Handle responsive sidebar
+      window.addEventListener("resize", function () {
+        const sidebar = document.getElementById("sidebar");
+        if (window.innerWidth >= 1024) {
+          sidebar.classList.remove("-translate-x-full");
+        } else {
+          sidebar.classList.add("-translate-x-full");
+        }
+      });
+
+      // Close sidebar when clicking outside on mobile
+      document.addEventListener("click", function (e) {
+        const sidebar = document.getElementById("sidebar");
+        const sidebarButton = document.querySelector(
+          'button[onclick="toggleSidebar()"]'
+        );
+
+        if (
+          window.innerWidth < 1024 &&
+          !sidebar.contains(e.target) &&
+          !sidebarButton.contains(e.target) &&
+          !sidebar.classList.contains("-translate-x-full")
+        ) {
+          sidebar.classList.add("-translate-x-full");
+        }
+      });
+    </script>
+  </body>
+</html>
