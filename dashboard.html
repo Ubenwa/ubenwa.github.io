@@ -159,7 +159,7 @@
                   >
                   <span class="text-sm text-gray-500">•</span>
                   <span class="text-sm text-gray-500"
-                    >Screener Link: app.roseline.ai/3d4sf8</span
+                    >Screening agent phone: +1-919-420-3075</span
                   >
                 </div>
               </div>
@@ -1233,6 +1233,7 @@
           document.getElementById("newView").classList.add("hidden");
           document.getElementById("headerSubTitleDate").innerHTML =
             "7 days ago";
+          document.getElementById("exportButtons").classList.add("hidden");
         } else if (viewName === "screening") {
           document.getElementById("headerButtons").classList.add("hidden");
           document.getElementById("headerSubTitle").classList.add("hidden");
@@ -1240,6 +1241,7 @@
           document.getElementById("pageTitle").textContent = "Screening Agents";
           document.getElementById("patientDetailView").classList.add("hidden");
           document.getElementById("newView").classList.add("hidden");
+          document.getElementById("exportButtons").classList.add("hidden");
         } else if (viewName === "patient") {
           document.getElementById("headerButtons").classList.add("hidden");
           document
@@ -1373,7 +1375,7 @@
         ];
 
         let currentStep = 0;
-        const stepDuration = 200 / steps.length; // 20 seconds total
+        const stepDuration = 10000 / steps.length; // 20 seconds total
 
         function showNextStep() {
           if (currentStep < steps.length) {
@@ -1432,7 +1434,7 @@
         ];
 
         let currentStep = 0;
-        const stepDuration = 200 / steps.length; // 20 seconds total
+        const stepDuration = 10000 / steps.length; // 20 seconds total
 
         function showNextStep() {
           if (currentStep < steps.length) {
@@ -1483,7 +1485,6 @@
             successMessage.className =
               "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50";
             //   “Share the screening link with candidates”
-            // app.roseline.ai/dar32s [COPY BUTTON]
             // move close button to top right
             successMessage.innerHTML = `
                  <div class="bg-white p-6 rounded-lg shadow-lg text-center relative">
@@ -1496,7 +1497,7 @@
                    <h3 class="text-lg font-semibold mb-2">Success!</h3>
                    <p class="text-gray-600 mb-4">Your new screening agent has been created successfully.</p>
                    <p class="text-gray-600 mb-4">Share the screening link with candidates</p>
-                   <p class="text-gray-600 mb-4">  <a href="app.roseline.ai/dar32s" class="text-blue-500 hover:underline">app.roseline.ai/dar32s</a> <button onclick="copyToClipboard('app.roseline.ai/dar32s', this)" class="px-2 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600">Copy</button></p>
+                   <p class="text-gray-600 mb-4">  <a href="https://ubenwa.github.io/new" class="text-blue-500 hover:underline">+1-919-420-3075</a> <button onclick="copyToClipboard('https://ubenwa.github.io/new', this)" class="px-2 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600">Copy</button></p>
                  </div>
                `;
             document.body.appendChild(successMessage);
