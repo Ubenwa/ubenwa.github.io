@@ -4463,59 +4463,6 @@
         }
       </style>
 
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const form = document.getElementById("patient-form");
-          const submitButton = document.getElementById("submit-btn");
-          const phoneNumberInput = document.querySelector(
-            "input[name='patient[phone_number]']"
-          );
-          const contactMethodSelect = document.getElementById("contact-method");
-          const termsCheckbox = document.getElementById("terms-checkbox");
-
-          function validateForm() {
-            const phoneNumber = phoneNumberInput.value.replace(/\s+/g, "");
-            const validPhone = /^\d{10}$/.test(phoneNumber);
-            submitButton.disabled = !(validPhone && termsCheckbox.checked);
-          }
-
-          phoneNumberInput.addEventListener("input", validateForm);
-          termsCheckbox.addEventListener("change", validateForm);
-
-          form.addEventListener("submit", function (event) {
-            const servicePhone = document.querySelector(
-              "input[name='patient[service_number]']"
-            ).value;
-            let phoneNumber = phoneNumberInput.value.replace(/\s+/g, "");
-            const phoneNumberPattern = /^\d{10}$/;
-
-            if (!phoneNumberPattern.test(phoneNumber)) {
-              event.preventDefault();
-              alert(
-                "Please enter a valid phone number in the format 4381234567."
-              );
-            } else {
-              phoneNumberInput.value = phoneNumber;
-              const isMobile = /iPhone|Android|iPad|iPod/i.test(
-                navigator.userAgent
-              );
-
-              if (
-                contactMethodSelect &&
-                contactMethodSelect.value === "call" &&
-                isMobile
-              ) {
-                setTimeout(() => {
-                  window.location.href = `tel:${servicePhone}`;
-                }, 1000);
-              }
-            }
-          });
-
-          validateForm(); // Run validation on page load
-        });
-      </script>
-
       <!-- Content Body End -->
     </div>
     <!-- JS ============================================ -->
