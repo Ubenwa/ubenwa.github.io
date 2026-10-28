@@ -1,0 +1,160 @@
+{
+  "9-ways-to-treat-baby-sleep-regression-according-to-science": [
+    "Normalised heading levels (H4→H2, H5→H3)"
+  ],
+  "baby-vs-parent-led-sleep-cry-it-out-ferber-and-no-cry-methods": [
+    "Removed MailPoet newsletter signup form (replaced by the app-download CTA)",
+    "Removed hand-made “Article Content” list (replaced by the generated table of contents; its anchor was broken)",
+    "Normalised heading levels (H4→H2, H6→H3)",
+    "Rewrote link https://nanni.ai/ask-Nanni-blog/2023/04/24/9-ways-to-treat-baby-sleep-regression-according-to-science/ → /stories/9-ways-to-treat-baby-sleep-regression-according-to-science/"
+  ],
+  "how-to-implement-sleep-training": [
+    "Removed MailPoet newsletter signup form (replaced by the app-download CTA)",
+    "Normalised heading levels (H4→H2)",
+    "Rewrote link https://nanni.ai/ask-Nanni-blog/2023/04/24/9-ways-to-treat-baby-sleep-regression-according-to-science/ → /stories/9-ways-to-treat-baby-sleep-regression-according-to-science/",
+    "Rewrote link https://nanni.ai/ask-Nanni-blog/2023/06/22/baby-led-vs-parent-led-sleep-training-how-to-use-the-cry-it-out-method-ferber-method-and-no-cry-method/ → /stories/baby-vs-parent-led-sleep-cry-it-out-ferber-and-no-cry-methods/"
+  ],
+  "how-to-understand-your-babys-cries-a-guide-for-first-time-parents": [
+    "Normalised heading levels (H2→H2, H3→H2, H4→H2)",
+    "Fixed trailing space in link https://www.childrensmn.org/educationmaterials/childrensmn/article/15329/pain-in-infants-babies/",
+    "Fixed trailing space in link https://www.sfnmjournal.com/article/S1744-165X(06)00026-6/fulltext",
+    "Fixed trailing space in link https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3820298/pdf/rmmj-4-4-e0025.pdf",
+    "Fixed trailing space in link https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4979223/"
+  ],
+  "hunger-to-crying-for-attention-your-babys-cries-evolve-over-time": [
+    "Normalised heading levels (H6→H2)"
+  ],
+  "best-apps-for-new-dads": [
+    "Removed MailerLite newsletter signup embed (replaced by the app-download CTA)",
+    "Normalised heading levels (H3→H2, H4→H2)"
+  ],
+  "top-5-apps-for-parents-in-2024": [
+    "Removed MailerLite newsletter signup embed (replaced by the app-download CTA)",
+    "Normalised heading levels (H4→H2)"
+  ],
+  "best-baby-monitor-tech-for-new-parents": [
+    "Removed MailerLite newsletter signup embed (replaced by the app-download CTA)",
+    "Normalised heading levels (H4→H2)"
+  ],
+  "unique-baby-shower-gift-ideas": [
+    "Normalised heading levels (H4→H2)"
+  ],
+  "win-a-lifetime-of-nanni-ai-premium": [],
+  "why-cant-i-give-my-baby-honey": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's feeds?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)"
+  ],
+  "why-babies-should-avoid-drinking-water": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's feeds?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)"
+  ],
+  "what-can-my-1-month-old-baby-see": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's development?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)"
+  ],
+  "what-can-my-2-month-old-baby-see": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's development?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)"
+  ],
+  "what-can-my-3-month-old-baby-see": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's development?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)"
+  ],
+  "how-can-i-tell-if-my-baby-is-hungry-or-full": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)"
+  ],
+  "how-and-why-should-i-burp-my-baby": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's feeds?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)",
+    "Fixed trailing space in link https://www.unicef.org/parenting/child-care/how-to-burp-baby",
+    "Fixed trailing space in link https://kidshealth.org/en/parents/burping.html"
+  ],
+  "teething-when-does-it-start-and-how-can-i-help": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's feeds?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)",
+    "Fixed trailing space in link https://www.mayoclinic.org/healthy-lifestyle/infant-and-toddler-health/in-depth/teething/art-20046378",
+    "Fixed trailing space in link https://www.inspq.qc.ca/en/tiny-tot/health/healthy-baby/baby-s-teeth"
+  ],
+  "what-types-of-toys-should-i-give-my-newborn": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's development?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)",
+    "Fixed trailing space in link https://kidshealth.org/en/parents/products-toys.html",
+    "Rewrote link https://nanni.ai/ask-Nanni-blog/category/infant-development/ → /stories/category/infant-development/"
+  ],
+  "how-and-why-should-my-baby-do-tummy-time": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's development?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)",
+    "Fixed trailing space in link https://kidshealth.org/en/parents/tummy-time.html"
+  ],
+  "how-do-i-prevent-and-treat-diaper-rashes": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's diapers?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)",
+    "Fixed trailing space in link https://www.healthychildren.org/English/ages-stages/baby/diapers-clothing/Pages/Diaper-Rash.aspx?_gl=1*1rsn3cq*_ga*MTczMTUwNjc0Ni4xNzI0MDk0MjYy*_ga_FD9D3XZVQQ*MTcyNDM1MTQ4OS4xMS4xLjE3MjQzNTE1NTMuMC4wLjA.",
+    "Fixed trailing space in link https://www.mayoclinic.org/diseases-conditions/diaper-rash/symptoms-causes/syc-20371636"
+  ],
+  "is-my-babys-poop-normal": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's diapers?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)",
+    "Fixed trailing space in link https://www.thebump.com/a/baby-poop#5",
+    "Fixed trailing space in link https://www.mayoclinic.org/healthy-lifestyle/infant-and-toddler-health/expert-answers/baby-poop/faq-20057971"
+  ],
+  "the-5-best-baby-tracker-apps": [
+    "Normalised heading levels (H4→H2)"
+  ],
+  "what-and-where-is-the-soft-spot-on-a-babys-head": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's development?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)",
+    "Fixed trailing space in link https://www.healthychildren.org/English/ages-stages/baby/Pages/Your-Babys-Head.aspx",
+    "Fixed trailing space in link https://health.clevelandclinic.org/fontanelle-baby-soft-spot"
+  ],
+  "babys-first-cold-what-to-expect-and-how-can-i-help-my-baby": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's routines?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)",
+    "Rewrote link https://nanni.ai/ask-Nanni-blog/2024/08/21/what-can-my-3-month-old-baby-see/ → /stories/what-can-my-3-month-old-baby-see/"
+  ],
+  "when-and-how-do-i-introduce-solid-food-to-my-baby": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's feeds?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)",
+    "Fixed trailing space in link https://www.who.int/news-room/fact-sheets/detail/infant-and-young-child-feeding",
+    "Fixed trailing space in link https://www.mayoclinic.org/healthy-lifestyle/infant-and-toddler-health/in-depth/healthy-baby/art-20046200",
+    "Fixed trailing space in link https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/Starting-Solid-Foods.aspx"
+  ],
+  "how-can-i-relieve-my-babys-gas": [
+    "Removed “Download Nanni” button (replaced by the app-download CTA)",
+    "Replaced inline promo “Interested in tracking your baby's feeds?” with the app-download CTA box",
+    "Removed in-body medical disclaimer (the template adds a standard one)",
+    "Normalised heading levels (H4→H2)",
+    "Fixed trailing space in link https://health.clevelandclinic.org/how-to-relieve-baby-gas",
+    "Rewrote link https://nanni.ai/ask-Nanni-blog/2024/09/05/how-and-why-should-i-burp-my-baby/ → /stories/how-and-why-should-i-burp-my-baby/"
+  ]
+}

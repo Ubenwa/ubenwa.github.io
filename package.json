@@ -1,0 +1,21 @@
+{
+  "name": "nanni-landing",
+  "private": true,
+  "description": "Nanni landing site and static /stories section",
+  "type": "module",
+  "scripts": {
+    "export:wp": "node scripts/export-wp.mjs",
+    "build:stories": "node scripts/build-stories.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "cheerio": "1.2.0",
+    "gray-matter": "4.0.3",
+    "marked": "18.1.2",
+    "sharp": "0.35.5",
+    "turndown": "7.2.4",
+    "turndown-plugin-gfm": "1.0.2"
+  }
+}
