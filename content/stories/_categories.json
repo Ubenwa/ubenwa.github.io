@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "cries",
+    "name": "Cries",
+    "parent": null,
+    "wp_url": "https://nanni.ai/ask-Nanni-blog/category/cries/"
+  },
+  {
+    "slug": "feeding-nutrition",
+    "name": "Feeding & Nutrition",
+    "parent": null,
+    "wp_url": "https://nanni.ai/ask-Nanni-blog/category/feeding-nutrition/"
+  },
+  {
+    "slug": "health-safety",
+    "name": "Health & Safety",
+    "parent": "feeding-nutrition",
+    "wp_url": "https://nanni.ai/ask-Nanni-blog/category/feeding-nutrition/health-safety/"
+  },
+  {
+    "slug": "infant-development",
+    "name": "Infant Development",
+    "parent": null,
+    "wp_url": "https://nanni.ai/ask-Nanni-blog/category/infant-development/"
+  },
+  {
+    "slug": "nanni-news",
+    "name": "Nanni News & Stories",
+    "parent": null,
+    "wp_url": "https://nanni.ai/ask-Nanni-blog/category/nanni-news/"
+  },
+  {
+    "slug": "newborn-care-essentials",
+    "name": "Newborn Care Essentials",
+    "parent": null,
+    "wp_url": "https://nanni.ai/ask-Nanni-blog/category/newborn-care-essentials/"
+  },
+  {
+    "slug": "sleep",
+    "name": "Sleep",
+    "parent": null,
+    "wp_url": "https://nanni.ai/ask-Nanni-blog/category/sleep/"
+  },
+  {
+    "slug": "tips-tricks",
+    "name": "Tips & Tricks",
+    "parent": "feeding-nutrition",
+    "wp_url": "https://nanni.ai/ask-Nanni-blog/category/feeding-nutrition/tips-tricks/"
+  },
+  {
+    "slug": "tips-tricks-newborn-care-essentials",
+    "name": "Tips & Tricks",
+    "parent": "newborn-care-essentials",
+    "wp_url": "https://nanni.ai/ask-Nanni-blog/category/newborn-care-essentials/tips-tricks-newborn-care-essentials/"
+  },
+  {
+    "slug": "uncategorized",
+    "name": "Uncategorized",
+    "parent": null,
+    "wp_url": "https://nanni.ai/ask-Nanni-blog/category/uncategorized/"
+  },
+  {
+    "slug": "vision",
+    "name": "Vision",
+    "parent": "infant-development",
+    "wp_url": "https://nanni.ai/ask-Nanni-blog/category/infant-development/vision/"
+  }
+]
